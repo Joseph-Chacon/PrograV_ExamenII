@@ -1,0 +1,45 @@
+﻿@page
+@model ExamenFinal.Pages.IndexModel
+@{
+    ViewData["Title"] = "Examen Final";
+}
+
+<h1 id="tittle">Examen Final Web App</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}else{
+    <form method="post">
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var estudiante in Model.Estudiantes)
+                    {
+                        <tr>
+                            <td>@estudiante.ID</td>
+                            <td>@estudiante.Nombre</td>
+                            <td>@estudiante.Apellido</td>
+                            <td>@estudiante.Edad</td>
+                            <td>@estudiante.Correo</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </form>
+}
+
+
